@@ -7,19 +7,27 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: "Home"
+      }
     },
     {
       path: '/weather/:state/:city',
       name: 'CityView',
-      component: () => import('../views/CityView.vue')
+      component: () => import('../views/CityView.vue'),
+      meta: {
+        title: "Weather"
+      }
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue')
-    // }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = `${
+    to.params.state ? `${to.params.city}, ${to.params.state}`
+    : to.meta.title} | The Local Weather`
+  next()
 })
 
 export default router

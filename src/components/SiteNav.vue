@@ -53,6 +53,7 @@ import {uid} from "uid"
 const savedCities = ref([])
 const route = useRoute()
 const router = useRouter()
+
 const addCity = () => {
   if(localStorage.getItem('savedCities')){
     savedCities.value = JSON.parse(localStorage.getItem('savedCities'))
@@ -75,6 +76,7 @@ const addCity = () => {
 
   let query = Object.assign({}, route.query)
   delete query.preview;
+  query.id = locationObj.id;
   router.replace({query})
 }
 
