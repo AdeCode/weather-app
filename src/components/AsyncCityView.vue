@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col flex-1 items-center">
+  <div class="flex flex-col flex-1 items-center py-4 px-4">
     <!-- Banner-->
     <div
       v-if="route.query.preview"
-      class="text-white p-4 bg-weather-secondary w-full text-center"
+      class="text-white p-4 bg-weather-secondary w-full text-center mb-2"
     >
       <p>
         You are currently previewing this city, click the "+" icon to start
@@ -11,9 +11,9 @@
       </p>
     </div>
     <!-- Weather Overview-->
-    <div class="flex flex-col items-center text-white py-12">
+    <div class="flex flex-col items-center text-white py-5 bg-weather-secondary w-full lg:w-[500px] rounded-lg mb-2">
       <h1 class="text-4xl mb-2">{{ route.params.city }}</h1>
-      <p class="text-sm mb-12">
+      <p class="text-sm mb-10">
         {{
           new Date(weatherData.currentTime).toLocaleDateString("en-us", {
             weekday: "short",
@@ -28,11 +28,11 @@
         }}
       </p>
       <p class="text-8xl mb-8">
-        {{ Math.round(weatherData.current.temp) }}&deg;
+        {{ Math.round((weatherData.current.temp-32)/1.8) }}&deg;
       </p>
       <p>
         Feels like
-        {{ Math.round(weatherData.current.feels_like) }}&deg;
+        {{ Math.round((weatherData.current.feels_like-32)/1.8) }}&deg;
       </p>
       <p class="capitalize">
         {{ weatherData.current.weather[0].description }}
@@ -45,7 +45,7 @@
     </div>
     <hr class="border-white border-opacity-10 border w-full" />
     <!--Hourly-->
-    <div class="max-w-screen-md w-full py-12">
+    <div class="max-w-screen-md w-full py-12 bg-weather-secondary rounded-lg my-2">
       <div class="mx-8 text-white">
         <h2 class="mb-4">Hourly Weather</h2>
         <div class="flex gap-10 overflow-x-scroll">
@@ -67,7 +67,7 @@
               alt=""
             />
             <p class="text-xl">
-              {{ Math.round(hourData.temp) }}&deg;
+              {{ Math.round((hourData.temp-32)/1.8) }}&deg;
             </p>
           </div>
         </div>
@@ -75,7 +75,7 @@
     </div>
     <hr class="border-white border-opacity-10 border w-full" />
     <!--Weekly Weather-->
-    <div class="max-w-screen-md w-full py-12">
+    <div class="max-w-screen-md w-full py-12 bg-weather-secondary rounded-lg my-2">
       <div class="mx-8 text-white">
         <h2 class="mb-4">7 Day Forecast</h2>
         <div v-for="day in weatherData.daily" 
@@ -98,8 +98,8 @@
             alt=""
           />
           <div class="flex gap-2 flex-1 justify-end">
-            <p>H: {{ Math.round(day.temp.max) }}</p>
-            <p>L: {{ Math.round(day.temp.min) }}</p>
+            <p>H: {{ Math.round((day.temp.max-32)/1.8) }}</p>
+            <p>L: {{ Math.round((day.temp.min-32)/1.8) }}</p>
           </div>
         </div>
       </div>

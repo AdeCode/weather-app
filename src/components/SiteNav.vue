@@ -4,7 +4,7 @@
       <RouterLink :to="{name: 'home'}">
         <div class="flex items-center gap-3">
           <i class="fa-solid fa-sun text-2xl"></i>
-          <p class="text-2xl">My Wather App</p>
+          <p class="text-2xl">Weather App</p>
         </div>
     </RouterLink>
     <div class="flex gap-3 flex-1 justify-end">
@@ -25,7 +25,7 @@
       <div class="text-black">
         <h1 class="text-2xl mb-1">About:</h1>
         <p class="mb-4">
-          The local Wather allows you to track the current and future weather of cities of your choosing.
+          The local Weather allows you to track the current and future weather of cities of your choosing.
         </p>
         <h2 class="text-2xl">How it works:</h2>
         <ol class="list-decimal list-inside mb-4">
