@@ -45,10 +45,10 @@
     </div>
     <hr class="border-white border-opacity-10 border w-full" />
     <!--Hourly-->
-    <div class="max-w-screen-md w-full py-12 bg-weather-secondary rounded-lg my-2">
+    <div class="max-w-screen-md w-full py-10 bg-weather-secondary rounded-lg my-2">
       <div class="mx-8 text-white">
         <h2 class="mb-4">Hourly Weather</h2>
-        <div class="flex gap-10 overflow-x-scroll">
+        <div class="flex gap-10 overflow-x-scroll py-3">
           <div 
             v-for="hourData in weatherData.hourly"
             :key="hourData.dt"
@@ -75,7 +75,7 @@
     </div>
     <hr class="border-white border-opacity-10 border w-full" />
     <!--Weekly Weather-->
-    <div class="max-w-screen-md w-full py-12 bg-weather-secondary rounded-lg my-2">
+    <div class="max-w-screen-md w-full py-10 bg-weather-secondary rounded-lg my-2">
       <div class="mx-8 text-white">
         <h2 class="mb-4">7 Day Forecast</h2>
         <div v-for="day in weatherData.daily" 
