@@ -106,8 +106,8 @@
     </div>
 
     <div class="flex items-center gap-2 py-12 text-white
-    cursor-pointer duration-150 hover:text-red-500"
-    @click="removeCity"
+      cursor-pointer duration-150 hover:text-red-500"
+      @click="removeCity"
     >
       <i class="fa-solid fa-trash"></i>
       <p>Remove City</p>
