@@ -22,4 +22,6 @@ import SiteNav from './components/SiteNav.vue'
 .page-enter-from, .page-leave-to{
   opacity: 0;
 }
+
+
 </style>
